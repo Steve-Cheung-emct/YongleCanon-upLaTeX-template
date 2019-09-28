@@ -529,7 +529,7 @@
 		\color{\@masuiro}\@maintitle\qquad{巻}\thechapter}};  % 書名+ 章號
   \fi\fi
 \else % 無糸欄、無邉框
-	\@ppageodd
+		\@ribonodd\@kasenodd\@ppageodd
 \fi
 \end{tikzpicture}%
 }}
@@ -554,7 +554,7 @@
     \fi
   \fi
 \else % 無糸欄、無邉框
-	\@ppageven
+	\@riboneven\@kaseneven\@ppageven
 \fi
 	\end{tikzpicture}%
 }}
@@ -952,7 +952,7 @@
     \vskip-13pt
      \par \noindent \Huge\mcfamily\bfseries
    \raggedright
-   \leavevmode\kern-2.5zw
+   \leavevmode\if@pdfm\kern-2.5zw\fi
    \ifnum \c@secnumdepth >\m@ne
      \setlength\@tempdima{\linewidth}%
     \if@mainmatter

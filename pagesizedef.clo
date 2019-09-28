@@ -49,13 +49,14 @@
 \fi
 \fi
 \else % only for BV
+\setlength{\voffset}{ 5 mm}
 \setlength{\topmargin}{-20 mm}
 \setlength{\textheight}{416 pt}
-\setlength{\textwidth}{180 mm}
+\setlength{\textwidth}{196 mm}
 %版面寬度（即由版心上邉至底邉的距离）
 \setlength{\handurawidth}{216 mm}
-\setlength{\oddsidemargin} {-28 pt}   %修正數據
-\setlength{\evensidemargin}{-16 pt}   %修正數據
+\setlength{\oddsidemargin} {-25 pt}   %修正數據
+\setlength{\evensidemargin}{-25 pt}   %修正數據
 \fi
 
 %%%%%%%%%%%%%%%%  判斷使用作文紙的紙張  %%%%%%%%%%%%%%%%%%%%
