@@ -49,9 +49,11 @@
 \fi
 \fi
 \else % only for BV
-\setlength{\topmargin}{34 mm}
+\setlength{\topmargin}{-20 mm}
 \setlength{\textheight}{416 pt}
-\setlength{\textwidth}{162 mm}
+\setlength{\textwidth}{180 mm}
+%版面寬度（即由版心上邉至底邉的距离）
+\setlength{\handurawidth}{216 mm}
 \setlength{\oddsidemargin} {-28 pt}   %修正數據
 \setlength{\evensidemargin}{-16 pt}   %修正數據
 \fi

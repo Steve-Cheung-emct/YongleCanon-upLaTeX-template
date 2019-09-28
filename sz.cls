@@ -208,6 +208,7 @@
 \newcommand{\verthuge}{\@setfontsize\verthuge{22}{26}}
 
 \newcommand{\szix}{\@setfontsize\szix{9}{12}}
+\newcommand{\szx}{\@setfontsize\szix{10}{12}}
 \newcommand{\szxi}{\@setfontsize\szxi{11}{12}}
 \newcommand{\szxii}{\@setfontsize\szxii{12}{12}}
 
@@ -1523,7 +1524,7 @@
 
 % 定義的破折號
 %\def\dash{{\leavevmode\kern1mm\raise0.1zh\hbox{\mcfamily{------}}\kern1mm}}
-\def\dash{{\leavevmode\kern1mm\raise0zh\hbox{\rule{1.8zw}{0.5pt}}\kern1mm}}
+\def\dash{\kern1pt{\leavevmode\raise0zh\hbox{\rule{1.8zw}{0.5pt}}} }
 
 \prebreakpenalty`︰=10000
 

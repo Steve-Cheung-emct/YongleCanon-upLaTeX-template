@@ -45,7 +45,7 @@
 		(529 pt,14) {\hbox{\tate\sihao\mgfamily%
 		{第}~\zhnumber{\@arabic\c@page}~{頁}}\stepcounter{page}};}
 	\node [below,]  at%
-		(529 pt,8) {\hbox{\tate\szix\mgfamily%
+		(529 pt,8) {\hbox{\tate\szx\mgfamily%
 		己亥歳次九月\UTF{3000}子康自乍用書}};
 %
 % 左側頁脚
@@ -66,7 +66,7 @@
 		(503 pt,14) {\hbox{\tate\sihao\mgfamily%
 		{第}~\zhnumber{\@arabic\c@page}~{頁}}};}
 	\node [below,]  at%
-		(503 pt,8) {\hbox{\tate\szix\mgfamily%
+		(503 pt,8) {\hbox{\tate\szx\mgfamily%
 		己亥歳次九月\UTF{3000}子康自乍用書}};
 	}
 % 定義奇數頁和偶數頁的垂直頁碼，pdfm 不啓用

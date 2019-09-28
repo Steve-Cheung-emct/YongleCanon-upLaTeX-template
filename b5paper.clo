@@ -63,42 +63,42 @@
 \def\@pdfmpageodd{%
 \ifthenelse{\value{page} < 1}{%
 	\node [right,]  at%
-		(0.6,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+		(0.6,2.6) {\hbox{\yoko\szx\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
 		\stepcounter{szpage}};}
 	{\node [right,]  at%
-		(0.6,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+		(0.6,2.6) {\hbox{\yoko\szx\mgfamily~第~\@arabic\c@page~頁}};}
 	}
 \def\@pdfmpageven{%
 \ifthenelse{\value{page} < 1}{%
 	\node [left,]  at%
-		(17.5,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+		(17.5,2.6) {\hbox{\yoko\szx\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
 		\stepcounter{szpage}};}
 	{\node [left,]  at%
-		(17.5,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}%
+		(17.5,2.6) {\hbox{\yoko\szx\mgfamily~第~\@arabic\c@page~頁}%
 		};}
 	}
 
 % 定義奇數頁和偶數頁的垂直頁碼，pdfm 不啓用
 \def\@ppageodd{%
 	\node [below,]  at%
-		(1.2,19) {\hbox{\tate\small\mgfamily\leftmark}};  % 章標題
+		(1.2,19) {\hbox{\tate\szx\mgfamily\leftmark}};  % 章標題
 \ifthenelse{\value{page} < 1}{%
 	\node [above,]  at%
-		(1.2,5) {\hbox{\tate\small\mgfamily%
+		(1.2,5) {\hbox{\tate\szx\mgfamily%
 		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
 	{\node [above,]  at%
-		(1.2,5) {\hbox{\tate\small\mgfamily~\kansuji\c@page~%
+		(1.2,5) {\hbox{\tate\szx\mgfamily~\kansuji\c@page~%
 		（{第}~\zhnumber{\@arabic\c@ppage}~{頁}）}\stepcounter{ppage}};}
 	}
 \def\@ppageven{%
 	\node [below,]  at%
-		(17.0,19) {\hbox{\tate\small\mgfamily\@maintitle}};  % 書名
+		(17.0,19) {\hbox{\tate\szx\mgfamily\@maintitle}};  % 書名
 \ifthenelse{\value{page} < 1}{%
 	\node [above,]  at%
-		(17.0,5) {\hbox{\tate\small\mgfamily%
+		(17.0,5) {\hbox{\tate\szx\mgfamily%
 		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
 	{\node [above,]  at%
-		(17.0,5) {\hbox{\tate\small\mgfamily~\kansuji\c@page~%
+		(17.0,5) {\hbox{\tate\szx\mgfamily~\kansuji\c@page~%
 		（{第}~\zhnumber{\@arabic\c@ppage}~{頁}）}\stepcounter{ppage}};}
 	}
 

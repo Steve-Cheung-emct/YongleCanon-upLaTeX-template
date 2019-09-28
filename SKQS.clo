@@ -49,10 +49,10 @@
 \def\@pdfmpageodd{%
 %\ifthenelse{\value{page} < 1}{%
 %	\node [right,]  at%
-%		(1.2,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+%		(1.2,2.6) {\hbox{\yoko\szx\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
 %		};}
 %	{\node [right,]  at%
-%		(1.2,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+%		(1.2,2.6) {\hbox{\yoko\szx\mgfamily~第~\@arabic\c@page~頁}};}
 % 右側 書眉
 \ifthenelse{\value{page} < 1}{%
 	\node [below,]  at%
@@ -67,16 +67,16 @@
 		(13 pt,14) {\hbox{\tate\sihao\mgfamily%
 		{第}~\zhnumber{\@arabic\c@page}~{頁}}};}
 	\node [below,]  at%
-		(13 pt,8) {\hbox{\tate\szix\mgfamily%
+		(13 pt,8) {\hbox{\tate\szx\mgfamily%
 		己亥歳次九月\UTF{3000}子康自乍用書}};
 	}
 \def\@pdfmpageven{%
 %\ifthenelse{\value{page} < 1}{%
 %	\node [left,]  at%
-%		(17.0,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+%		(17.0,2.6) {\hbox{\yoko\szx\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
 %		};}
 %	{\node [left,]  at%
-%		(17.0,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+%		(17.0,2.6) {\hbox{\yoko\szx\mgfamily~第~\@arabic\c@page~頁}};}
 % 左側 書眉
 	\node [below,]  at%
 		(503 pt,22) {\hbox{\tate\sihao\mgfamily\leftmark}};  % 章標題
@@ -88,7 +88,7 @@
 		(503 pt,14) {\hbox{\tate\sihao\mgfamily%
 		{第}~\zhnumber{\@arabic\c@page}~{頁}}\stepcounter{ppage}};}
 	\node [below,]  at%
-		(503 pt,8) {\hbox{\tate\szix\mgfamily%
+		(503 pt,8) {\hbox{\tate\szx\mgfamily%
 		己亥歳次九月\UTF{3000}子康自乍用書}};
 	}
 
