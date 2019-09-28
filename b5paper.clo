@@ -7,22 +7,22 @@
 \def\@ribonodd{%
 	\foreach \i in {103,155,...,450}{%
 			% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
-		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 23.5);}}% 奇數頁絲欄 
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}}% 奇數頁絲欄 
 % 定義偶數頁糸欄
 \def\@riboneven{%
 	\foreach \i in {103,155,...,450}{% 
 		% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
-		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 23.5);}}% 絲欄 
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}}% 絲欄 
 
 % 定義奇數頁内外邉框
 \def\@kasenodd{%
-	\draw [line width=3pt, color=\@columncolor ]  (45 pt,3.0) rectangle (473 pt,23.7);% 外框 
-	\draw [line width=1pt, color=\@riboncolor ]  (51 pt,3.2) rectangle (467 pt,23.5);% 內框 
+	\draw [line width=3pt, color=\@columncolor ]  (45 pt,3.0) rectangle (473 pt,22.2);% 外框 
+	\draw [line width=1pt, color=\@riboncolor ]  (51 pt,3.2) rectangle (467 pt,22);% 內框 
 	}
 % 定義偶數頁内外邉框
 \def\@kaseneven{%
-	\draw [line width=3pt, color=\@columncolor ]  (45 pt,3.0) rectangle (473 pt,23.7);% 外框 
-	\draw [line width=1pt, color=\@riboncolor ]  (51 pt,3.2) rectangle (467 pt,23.5);% 內框 
+	\draw [line width=3pt, color=\@columncolor ]  (45 pt,3.0) rectangle (473 pt,22.2);% 外框 
+	\draw [line width=1pt, color=\@riboncolor ]  (51 pt,3.2) rectangle (467 pt,22);% 內框 
 	}
 
 % 定義奇數頁魚尾、奇偶公用頁碼
@@ -53,7 +53,7 @@
 % 定義奇數頁和偶數頁的垂直頁碼，pdfm 不啓用
 \def\@ppageodd{%
 	\node [below,]  at%
-		(1.2,21) {\hbox{\tate\szx\mgfamily\leftmark}};  % 章標題
+		(1.2,20) {\hbox{\tate\szx\mgfamily\leftmark}};  % 章標題
 \ifthenelse{\value{page} < 1}{%
 	\node [above,]  at%
 		(1.2,5) {\hbox{\tate\szx\mgfamily%
@@ -64,7 +64,7 @@
 	}
 \def\@ppageven{%
 	\node [below,]  at%
-		(17.0,21) {\hbox{\tate\szx\mgfamily\@maintitle}};  % 書名
+		(17.0,20) {\hbox{\tate\szx\mgfamily\@maintitle}};  % 書名
 \ifthenelse{\value{page} < 1}{%
 	\node [above,]  at%
 		(17.0,5) {\hbox{\tate\szx\mgfamily%
