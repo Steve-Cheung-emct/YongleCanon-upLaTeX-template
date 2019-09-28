@@ -1,0 +1,89 @@
+% !TEX program = ptex2pdf
+%%		uplatex main
+%%		uplatex main
+%%		dvipdfmx  main.dvi
+
+\documentclass[永樂大典,整版]{sz}
+
+% 载入自定义设置
+\usepackage{stonesettings}
+
+% 載入自定義的字體包
+\usepackage{genkofonts}
+
+\prebreakpenalty`︰=10000
+\postbreakpenalty`◯=10000
+
+\maintitle{永樂大典}
+\subtitle{一萬三千五百六十三}
+\author{}
+\authorfn{}
+
+
+
+%\defineCMYKcolor(0,0.1146,0.2344,0.2471){mypagecolor} % 西厢记古纸色
+\defineCMYKcolor(0,0.1709,0.3970,0.2196){mypagecolor} % 稼軒長短句古紙模擬
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 載入的紙張配置信息。此係必須文件。     %%
+\input{pagesizedef.clo}              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%頭注領域の計算%使頭注標識為漢字
+\settochuu \kanjichuu %
+
+
+\def\evyino#1{{\textcolor{konjou}{\fontsize{11}{11}\selectfont\CID{8237}}}\kern-1zw\hbox{\textcolor{yellow}{#1}}}% 陰文 
+
+\def\evyint#1{{\textcolor{konjou}{\fontsize{11}{11}\selectfont\CID{8237}\CID{8237}}}\kern-20pt\hbox{\textcolor{yellow}{#1}}}% 陰文 
+
+\def\yino#1{~\inhibitglue{\textcolor{konjou}{\fontsize{18}{18}\selectfont\CID{8237}}}\kern-1zw\hbox{\textcolor{yellow}{#1}}~\inhibitglue}% 陰文 
+
+\def\yint#1{\inhibitglue{\textcolor{konjou}{\fontsize{18}{18}\selectfont\CID{8237}\CID{8237}}}\kern-34pt\hbox{\textcolor{yellow}{#1}}~\inhibitglue}% 陰文 
+
+
+\begin{document}
+
+\userelfont\ujlreq
+\pagestyle{empty}
+
+
+%%%%%% 封面 %%%%%%
+\pagecolor{konjou}
+
+\maketitle
+
+\cleardoublepage
+
+
+
+\pagecolor{gray!5}
+%\pagecolor{ikkonzome} % 一斤染
+%\pagecolor{sakurairo} % 樱色 少女粉
+%\pagecolor{shiou!60}
+
+
+%%%%%% 正文 %%%%%%
+\LARGE 
+
+\pagestyle{plain}
+
+\ugenkomin
+
+% 載入分頁文檔
+%\setcounter{page}{-1}
+%\input{./CONTEXT/zh1.txt}
+
+% 載入整版文檔
+%\setcounter{page}{0}
+%\input{./CONTEXT/zh2.txt}
+
+% 載入永樂大典測試文本
+\input{./CONTEXT/803.tex}
+
+%%%%%% 封底 %%%%%%
+
+
+
+\end{document}
+
+

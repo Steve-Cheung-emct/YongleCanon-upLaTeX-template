@@ -1,0 +1,81 @@
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesFile{YongleCanonFullPage.clo}
+  [2019/09/27 v1.0 (page size option)]
+
+%%% 書眉定義
+\def\@ribonodd{%
+	\foreach \i in {503,451,...,90}{%
+			% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}% 奇數頁絲欄 
+	\foreach \i in {529,581,...,945}{%
+			% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}% 奇數頁絲欄 
+	}
+% 定義奇數頁内外邉框
+\def\@kasenodd{%
+	\draw [line width=3pt, color=\@columncolor ]  (80 pt,3.0) rectangle (952 pt,22.2);% 外框 
+	\draw [line width=1pt, color=\@riboncolor ]  (87 pt,3.2) rectangle (503 pt,22);% 內框 
+	\draw [line width=1pt, color=\@riboncolor ]  (529 pt,3.2) rectangle (945 pt,22);% 內框 
+	}
+% 定義奇數頁魚尾、奇偶公用頁碼
+\def\@fishodd{%
+		\draw [line width=16pt, color=\@columncolor ] (516 pt ,22.2) -- (516 pt ,19.7); % 上封线
+		\draw [line width=16pt, color=\@columncolor ] (516 pt ,3.0) -- (516 pt ,5);  % 下封线
+\node [below,]  at%
+		(516 pt ,19.7) {\hbox{\tate\@tfish}};
+	\node [below,]  at%
+		(516 pt ,9) {\hbox{\tate\@tfish}};
+	\node [below,]  at%
+		(516 pt ,8) {\hbox{\tate\makebox[3zw]{\verthuge\gtfamily\ebseries %
+		\color{\@masuiro}\zhnumber{\@arabic\c@ppage}}}};
+	\node [above,]  at%
+		(516 pt ,5) {\hbox{\tate\@bfish}\stepcounter{ppage}};
+	}
+% 定義奇數頁和偶數頁的水平頁碼，pdfm 啓用
+\def\@pdfmpageodd{%
+% 右側頁脚
+\ifthenelse{\value{page} < 1}{%
+	\node [right,]  at%
+		(542 pt,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+		\stepcounter{szpage}};}
+	{\node [right,]  at%
+		(542 pt,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+% 左側頁脚
+\ifthenelse{\value{page} < 1}{%
+	\node [left,]  at%
+		(490 pt,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+		\stepcounter{szpage}};}
+	{\node [left,]  at%
+		(490 pt,2.6) {\stepcounter{page}\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+	}
+% 定義奇數頁和偶數頁的垂直頁碼，pdfm 不啓用
+\def\@ppageodd{%
+%   右側 書眉
+	\node [below,]  at%
+		(34.4,19) {\hbox{\tate\small\mgfamily\leftmark}};  % 章標題
+\ifthenelse{\value{page} < 1}{%
+	\node [above,]  at%
+		(34.4,5) {\hbox{\tate\small\mgfamily%
+		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
+	{\node [above,]  at%
+		(34.4,5) {\hbox{\tate\small\mgfamily~\kansuji\c@page~%
+		（{第}~\zhnumber{\@arabic\c@ppage}~{頁}）}\stepcounter{ppage}};}
+%   左側 書眉
+	\node [below,]  at%
+		(2.0,19) {\hbox{\tate\small\mgfamily\leftmark}};  % 章標題
+\ifthenelse{\value{page} < 1}{%
+	\node [above,]  at%
+		(2.0,5) {\hbox{\tate\small\mgfamily%
+		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
+	{\node [above,]  at%
+		(2.0,5) {\hbox{\tate\small\mgfamily~\kansuji\c@page~%
+		（{第}~\zhnumber{\@arabic\c@ppage}~{頁}）}\stepcounter{ppage}};}
+	}
+\let\@kaseneven\@empty
+\let\@riboneven\@empty
+\let\@fisheven\@empty
+\let\@pdfmpageven\@empty
+\let\@ppageven\@empty
+\let\@chribonodd\@empty
+
+\endinput

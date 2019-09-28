@@ -1,0 +1,83 @@
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesFile{SKQSFullPage.clo}
+  [2019/09/27 v1.0 (page size option)]
+
+%%% 書眉定義
+\def\@ribonodd{%
+	\foreach \i in {490,438,...,75}{%
+			% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}% 奇數頁絲欄 
+	\foreach \i in {542,594,...,950}{%
+			% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}% 奇數頁絲欄 
+	}
+% 定義奇數頁内外邉框
+\def\@kasenodd{%
+	\draw [line width=3pt, color=\@columncolor ]  (68 pt,3.0) rectangle (966 pt,22.2);% 外框 
+	\draw [line width=1pt, color=\@riboncolor ]  (74 pt,3.2) rectangle (958 pt,22);% 內框 
+	}
+% 定義奇數頁魚尾、奇偶公用頁碼
+\def\@fishodd{%
+%		\draw [line width=16pt, color=\@columncolor ] (516 pt ,22.2) -- (516 pt ,19.7); % 上封线
+%		\draw [line width=16pt, color=\@columncolor ] (516 pt ,3.0) -- (516 pt ,5);  % 下封线
+\node [below,]  at%
+		(516 pt ,16) {\hbox{\tate\@tfish}};
+	\node [above,]  at%
+		(516 pt ,8) {\hbox{\tate\@bfish}};
+	}
+% 定義奇數頁和偶數頁的水平頁碼，pdfm 啓用
+\def\@pdfmpageodd{%
+% 右側頁脚
+%\ifthenelse{\value{page} < 1}{%
+%	\node [right,]  at%
+%		(542 pt,2.6) {\hbox{\yoko\sihao\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+%		};}
+%	{\node [right,]  at%
+%		(542 pt,2.6) {\hbox{\yoko\sihao\mgfamily~第~\@arabic\c@page~頁}};}
+% 右側 書眉
+	\node [below,]  at%
+		(529 pt,22) {\hbox{\tate\sihao\mgfamily\@maintitle{巻之}\thechapter}};  % 書名
+\ifthenelse{\value{page} < 1}{%
+	\node [below,]  at%
+		(529 pt,14) {\hbox{\tate\sihao\mgfamily%
+		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
+	{\node [below,]  at%
+		(529 pt,14) {\hbox{\tate\sihao\mgfamily%
+		{第}~\zhnumber{\@arabic\c@page}~{頁}}\stepcounter{page}};}
+	\node [below,]  at%
+		(529 pt,8) {\hbox{\tate\szix\mgfamily%
+		己亥歳次九月\UTF{3000}子康自乍用書}};
+%
+% 左側頁脚
+%\ifthenelse{\value{page} < 1}{%
+%	\node [left,]  at%
+%		(490 pt,2.6) {\hbox{\yoko\sihao\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+%		};}
+%	{\node [left,]  at%
+%		(490 pt,2.6) {\stepcounter{page}\hbox{\yoko\sihao\mgfamily~第~\@arabic\c@page~頁}};}
+% 左側 書眉
+	\node [below,]  at%
+		(503 pt,22) {\hbox{\tate\sihao\mgfamily\leftmark}};  % 章標題
+\ifthenelse{\value{page} < 1}{%
+	\node [below,]  at%
+		(503 pt,14) {\hbox{\tate\sihao\mgfamily%
+		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
+	{\node [below,]  at%
+		(503 pt,14) {\hbox{\tate\sihao\mgfamily%
+		{第}~\zhnumber{\@arabic\c@page}~{頁}}};}
+	\node [below,]  at%
+		(503 pt,8) {\hbox{\tate\szix\mgfamily%
+		己亥歳次九月\UTF{3000}子康自乍用書}};
+	}
+% 定義奇數頁和偶數頁的垂直頁碼，pdfm 不啓用
+\let\@ppageodd\@empty
+\let\@kaseneven\@empty
+\let\@riboneven\@empty
+\let\@fisheven\@empty
+\let\@pdfmpageven\@empty
+\let\@ppageven\@empty
+\let\@chribonodd\@empty
+
+\endinput
+
+% END OF SKQSFullPage.CLO

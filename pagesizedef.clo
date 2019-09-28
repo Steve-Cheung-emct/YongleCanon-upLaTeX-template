@@ -1,0 +1,64 @@
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesFile{pagesizedef.clo}
+  [2019/09/22 v1.0 (page size option)]
+
+\makeatletter
+%%%%%%%%%%%%%%%%  判斷是否使用騎縫書眉  %%%%%%%%%%%%%%%%%%%%
+\setlength{\voffset}{ 0 mm}
+\setlength{\hoffset}{ 0 mm}
+\setlength{\parskip}{0mm}
+\setlength{\parindent}{0mm}
+
+\if@pdfm
+\if@BV
+\if@YongleCanon % for 永樂大典
+\setlength{\topmargin}{-20 mm}
+\setlength{\textheight}{416 pt}
+\setlength{\textwidth}{162 mm}
+%版面寬度（即由版心上邉至底邉的距离）
+\setlength{\handurawidth}{216 mm}
+\setlength{\oddsidemargin} {-50 pt}   %修正數據
+\setlength{\evensidemargin}{  0 pt}   %修正數據
+\else % for SKQS
+\setlength{\voffset}{ 6 mm}
+\setlength{\topmargin}{-20 mm}
+\setlength{\textheight}{416 pt}
+\setlength{\textwidth}{166 mm}
+%版面寬度（即由版心上邉至底邉的距离）
+\setlength{\handurawidth}{216 mm}
+\setlength{\oddsidemargin} {-50 pt}   %修正數據
+\setlength{\evensidemargin}{  0 pt}   %修正數據
+\fi
+\fi
+\if@BIV
+\if@YongleCanon % for 永樂大典
+\setlength{\topmargin}{-20 mm}
+\setlength{\textheight}{858 pt}
+\setlength{\textwidth}{162 mm}
+%版面寬度（即由版心上邉至底邉的距离）
+\setlength{\handurawidth}{216 mm}
+\setlength{\oddsidemargin} { 12 pt}   %修正數據
+\else % for SKQS
+\setlength{\voffset}{ 6 mm}
+\setlength{\topmargin}{-20 mm}
+\setlength{\textheight}{884 pt}
+\setlength{\textwidth}{166 mm}
+%版面寬度（即由版心上邉至底邉的距离）
+\setlength{\handurawidth}{216 mm}
+\setlength{\oddsidemargin} { -3 pt}   %修正數據
+\fi
+\fi
+\else % only for BV
+\setlength{\topmargin}{34 mm}
+\setlength{\textheight}{416 pt}
+\setlength{\textwidth}{162 mm}
+\setlength{\oddsidemargin} {-28 pt}   %修正數據
+\setlength{\evensidemargin}{-16 pt}   %修正數據
+\fi
+
+%%%%%%%%%%%%%%%%  判斷使用作文紙的紙張  %%%%%%%%%%%%%%%%%%%%
+\makeatother
+
+\endinput
+
+% end of page size optins, file 'pagesizedef.clo'

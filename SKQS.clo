@@ -1,0 +1,102 @@
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesFile{SKQS.clo}
+  [2019/09/27 v1.0 (page size option)]
+
+% B5 定義
+% 定義奇數頁糸欄
+\def\@ribonodd{%
+	\foreach \i in {78 , 130 ,..., 442}{%
+			% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}
+		\draw [line width=1pt, color=\@riboncolor ] (26 pt, 3.2)--(26 pt, 22);
+	}% 奇數頁絲欄 
+% 定義偶數頁糸欄
+\def\@riboneven{%
+	\foreach \i in {440 ,388 ,..., 60}{% 
+		% 起始點 416+25.5pt。起始点 + 52pt 每栏 从右往左
+		\draw [ color=\@riboncolor ] (\i pt, 3.2)--(\i pt, 22);}
+		\draw [line width=1pt, color=\@riboncolor ] (492 pt, 3.2)--(492 pt, 22);
+	}% 絲欄 
+
+% 定義奇數頁内外邉框
+\def\@kasenodd{%
+	\draw [line width=3pt, color=\@columncolor ]  (-20 pt,3.0) rectangle (450 pt,22.2);% 外框 
+	\draw [line width=1pt, color=\@riboncolor ]  (-20 pt,3.2) rectangle (442 pt,22);% 內框 
+	}
+% 定義偶數頁内外邉框
+\def\@kaseneven{%
+	\draw [line width=3pt, color=\@columncolor ]  (68 pt,3.0) rectangle (18.5,22.2);% 外框 
+	\draw [line width=1pt, color=\@riboncolor ]  (76 pt,3.2) rectangle (18.5 ,22);% 內框 
+	}
+
+% 定義奇數頁魚尾、奇偶公用頁碼
+\def\@fishodd{%
+\node [below,]  at%
+		(0,16) {\hbox{\tate\@tfish}};
+	\node [above,]  at%
+		(0,8) {\hbox{\tate\@bfish}};
+	}
+
+% 定義偶數頁魚尾、奇偶公用頁碼
+\def\@fisheven{%
+	\node [below,]  at%
+		(18.2,16) {\hbox{\tate\@tfish}};
+	\node [above,]  at%
+		(18.2,8) {\hbox{\tate\@bfish}\stepcounter{ppage}};
+	}
+
+% 定義奇數頁和偶數頁的水平頁碼，pdfm 啓用
+\def\@pdfmpageodd{%
+%\ifthenelse{\value{page} < 1}{%
+%	\node [right,]  at%
+%		(1.2,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+%		};}
+%	{\node [right,]  at%
+%		(1.2,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+% 右側 書眉
+\ifthenelse{\value{page} < 1}{%
+	\node [below,]  at%
+		(13 pt,22) {\hbox{\tate\sihao\mgfamily\@maintitle\qquad{序}}};}  % 書名
+	{\node [below,]  at%
+		(13 pt,22) {\hbox{\tate\sihao\mgfamily\@maintitle{巻之}\thechapter}};}  % 書名
+\ifthenelse{\value{page} < 1}{%
+	\node [below,]  at%
+		(13 pt,14) {\hbox{\tate\sihao\mgfamily%
+		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
+	{\node [below,]  at%
+		(13 pt,14) {\hbox{\tate\sihao\mgfamily%
+		{第}~\zhnumber{\@arabic\c@page}~{頁}}};}
+	\node [below,]  at%
+		(13 pt,8) {\hbox{\tate\szix\mgfamily%
+		己亥歳次九月\UTF{3000}子康自乍用書}};
+	}
+\def\@pdfmpageven{%
+%\ifthenelse{\value{page} < 1}{%
+%	\node [left,]  at%
+%		(17.0,2.6) {\hbox{\yoko\small\mgfamily~（第~\zhnumber{\@arabic\c@szpage}~頁）}%
+%		};}
+%	{\node [left,]  at%
+%		(17.0,2.6) {\hbox{\yoko\small\mgfamily~第~\@arabic\c@page~頁}};}
+% 左側 書眉
+	\node [below,]  at%
+		(503 pt,22) {\hbox{\tate\sihao\mgfamily\leftmark}};  % 章標題
+\ifthenelse{\value{page} < 1}{%
+	\node [below,]  at%
+		(503 pt,14) {\hbox{\tate\sihao\mgfamily%
+		（{第}~\zhnumber{\@arabic\c@szpage}~{頁}）}\stepcounter{szpage}};}
+	{\node [below,]  at%
+		(503 pt,14) {\hbox{\tate\sihao\mgfamily%
+		{第}~\zhnumber{\@arabic\c@page}~{頁}}\stepcounter{ppage}};}
+	\node [below,]  at%
+		(503 pt,8) {\hbox{\tate\szix\mgfamily%
+		己亥歳次九月\UTF{3000}子康自乍用書}};
+	}
+
+% 定義奇數頁和偶數頁的垂直頁碼，pdfm 不啓用
+\let\@ppageodd\@empty
+\let\@ppageven\@empty
+
+
+\endinput
+
+% end of SKQS.clo
